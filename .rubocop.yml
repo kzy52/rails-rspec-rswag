@@ -1,0 +1,192 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  TargetRubyVersion: 3.2
+  Include:
+    - '**/*.rake'
+    - '**/*.rb'
+    - 'Gemfile'
+  Exclude:
+    - 'bin/**/*'
+    - 'config/boot.rb'
+    - 'config/environment.rb'
+    - 'config/environments/**/*'
+    - 'config/puma.rb'
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+  SuggestExtensions: false
+
+Rails:
+  Enabled: true
+
+############################################################
+#################### Style ################################
+############################################################
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ClassCheck:
+  EnforcedStyle: is_a?
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/FormatString:
+  EnforcedStyle: format
+
+Style/FrozenStringLiteralComment:
+  SafeAutoCorrect: true
+
+Style/GuardClause:
+  Enabled: false
+  MinBodyLength: 3
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+############################################################
+###################### Lint ################################
+############################################################
+Lint/EmptyBlock:
+  Exclude:
+    - 'spec/models/**/*'
+    - 'spec/factories/**/*'
+
+############################################################
+###################### Layout ##############################
+############################################################
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'db/fixtures/**/*'
+    - 'spec/**/*'
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+
+Layout/TrailingEmptyLines:
+  EnforcedStyle: final_newline
+
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: aligned
+
+############################################################
+#################### Naming ################################
+############################################################
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+############################################################
+#################### Metrics ###############################
+############################################################
+Metrics/AbcSize:
+  Max: 30
+  Exclude:
+    - 'db/migrate/**/*'
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 25
+  Exclude:
+    - 'config/routes.rb'
+    - 'spec/**/*'
+
+Metrics/BlockNesting:
+  Max: 3
+
+Metrics/ClassLength:
+  Max: 150
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/CyclomaticComplexity:
+  Max: 6
+
+Metrics/MethodLength:
+  Max: 25
+  Exclude:
+    - 'db/migrate/*.rb'
+    - 'spec/schemas/**/*'
+
+Metrics/ModuleLength:
+  Max: 100
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
+
+Metrics/PerceivedComplexity:
+  Max: 9
+
+
+############################################################
+###################### RSpec ###############################
+############################################################
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - 'spec/models/**/*'
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/VariableName:
+  Exclude:
+    - 'spec/requests/**/*'
+  EnforcedStyle: snake_case

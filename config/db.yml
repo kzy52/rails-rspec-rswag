@@ -1,0 +1,14 @@
+default: &default
+  database_name: 'demo'
+  database_socket: '/tmp/mysql.sock'
+  database_pool: 5
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database_name: 'demo_test'
+
+production:
+  <<: *default

@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "aki77.rails-db-schema",
+    "bung87.rails",
+    "castwide.solargraph",
+    "GitHub.copilot",
+    "Hridoy.rails-snippets",
+    "KoichiSasada.vscode-rdbg",
+    "LoranKloeze.ruby-rubocop-revived",
+    "noku.rails-run-spec-vscode",
+    "rebornix.ruby"
+  ],
+  "unwantedRecommendations": []
+}

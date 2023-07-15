@@ -1,0 +1,18 @@
+{
+  "[ruby]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "LoranKloeze.ruby-rubocop-revived"
+  },
+  "ruby.intellisense": "rubyLocate",
+  "ruby.useLanguageServer": false,
+  "ruby.useBundler": false,
+  "ruby.format": "rubocop",
+  "ruby.lint": {
+    "rubocop": {
+      "forceExclusion": true
+    }
+  },
+  "ruby.rubocop.useBundler": false,
+  "solargraph.useBundler": false
+}
