@@ -3,7 +3,265 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
-paths: {}
+paths:
+  "/articles":
+    post:
+      summary: create article
+      parameters: []
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  article:
+                    type: object
+                    required:
+                    - id
+                    - title
+                    - content
+                    - created_at
+                    - updated_at
+                    properties:
+                      id:
+                        type: number
+                        description: ID
+                      title:
+                        type: string
+                        description: タイトル
+                      content:
+                        type: string
+                        description: 本文
+                      created_at:
+                        type: string
+                        description: 登録日時
+                      updated_at:
+                        type: string
+                        description: 更新日時
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                article:
+                  type: object
+                  required:
+                  - title
+                  properties:
+                    title:
+                      type: string
+                      description: タイトル
+                    content:
+                      type: string
+                      description: 本文
+    get:
+      summary: get articles
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  articles:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - id
+                      - title
+                      - content
+                      - created_at
+                      - updated_at
+                      properties:
+                        id:
+                          type: number
+                          description: ID
+                        title:
+                          type: string
+                          description: タイトル
+                        content:
+                          type: string
+                          description: 本文
+                        created_at:
+                          type: string
+                          description: 登録日時
+                        updated_at:
+                          type: string
+                          description: 更新日時
+  "/articles/{id}":
+    delete:
+      summary: delete article
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+    get:
+      summary: get article
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  article:
+                    type: object
+                    required:
+                    - id
+                    - title
+                    - content
+                    - created_at
+                    - updated_at
+                    properties:
+                      id:
+                        type: number
+                        description: ID
+                      title:
+                        type: string
+                        description: タイトル
+                      content:
+                        type: string
+                        description: 本文
+                      created_at:
+                        type: string
+                        description: 登録日時
+                      updated_at:
+                        type: string
+                        description: 更新日時
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+    patch:
+      summary: update article
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  article:
+                    type: object
+                    required:
+                    - id
+                    - title
+                    - content
+                    - created_at
+                    - updated_at
+                    properties:
+                      id:
+                        type: number
+                        description: ID
+                      title:
+                        type: string
+                        description: タイトル
+                      content:
+                        type: string
+                        description: 本文
+                      created_at:
+                        type: string
+                        description: 登録日時
+                      updated_at:
+                        type: string
+                        description: 更新日時
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                article:
+                  type: object
+                  required:
+                  - title
+                  properties:
+                    title:
+                      type: string
+                      description: タイトル
+                    content:
+                      type: string
+                      description: 本文
 servers:
 - url: https://{defaultHost}
   variables:
